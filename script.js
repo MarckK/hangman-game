@@ -40,17 +40,30 @@ function refreshRemainingGuesses () {
 }
 
 function isGameEnded (remainingGuesses) {
-	console.log(remainingGuesses)
 
-		
 	if(remainingGuesses <= 0) {
-		console.log("guesses left" + remainingGuesses);
-		console.log("ended!");
 		$('.remaining-guesses').hide();
+		$('.attempts').hide();
 		$('.console').slideToggle(1100);
 		$('#new-game').show();
-		updateWord(data.solution);
+	//	updateWord(data.solution);  //this isn't happening!!  
+	//	console.log(data.solution);
+		getSolution();
 	} 
+}
+
+function getSolution (){
+	var token = $('.token').text();
+	$.ajax({
+    type: "GET",
+    dataType: 'json',
+    url: "http://hangman-api.herokuapp.com/hangman",
+    data: { "token": token },
+  }).done(function(data) {
+  	updateWord(data.solution);
+  //  var hangman_word = $('.hangman-word').text();
+//    var solution = data.solution;
+})
 }
 
 function makeNewGame() {
