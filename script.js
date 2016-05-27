@@ -46,8 +46,6 @@ function isGameEnded (remainingGuesses) {
 		$('.attempts').hide();
 		$('.console').slideToggle(1100);
 		$('#new-game').show();
-	//	updateWord(data.solution);  //this isn't happening!!  
-	//	console.log(data.solution);
 		getSolution();
 	} 
 }
@@ -61,8 +59,6 @@ function getSolution (){
     data: { "token": token },
   }).done(function(data) {
   	updateWord(data.solution);
-  //  var hangman_word = $('.hangman-word').text();
-//    var solution = data.solution;
 })
 }
 
@@ -101,20 +97,6 @@ function makeAGuess(guess) {
 		updateWord(data.hangman);
 		displayAttempt(guess, data.correct);
 		refreshRemainingGuesses();
-
-	//	if ( data.correct == false){
-	//		var numberWrongAnswers = $('.wrong').length;
-			//decrease your counter
-
-			//ifyour xero - died`1
-	//	}
-
-		// var hangman = data.hangman;
-		// var hangman_word = $('.hangman-word').text();
-
-		// if (hangman_word.indexOf("_") == -1) {
-  //         console.log("you won");
-  //       } 
 
 		console.log(data);
 	})
