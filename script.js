@@ -1,4 +1,7 @@
-var maximumGuesses = 2;
+//Problems: might be caching letter guesses.  And also, if you win the game does nothing! 
+//Also, there seems to be a problem with lower case and capital letters!
+
+var maximumGuesses = 22;
 
 $(document).ready(function() {
 	$('.console').hide();
@@ -73,7 +76,6 @@ function makeNewGame() {
 }
 
 function makeAGuess(guess) {
-
 //	console.log("guessing... " +guess)
 	$('.letter').addClass('error');
 	if ($.isNumeric(guess)) {
@@ -97,5 +99,4 @@ function makeAGuess(guess) {
 		displayAttempt(guess, data.correct);
 		refreshRemainingGuesses();
 	})
-
 }
