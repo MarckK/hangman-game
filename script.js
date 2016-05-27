@@ -1,8 +1,4 @@
-// No more caching of letters!
-// Congratulations message added!
-//Also, there seems to be a problem with lower case and capital letters!
-
-var maximumGuesses = 22;
+var maximumGuesses = 8;
 
 $(document).ready(function() {
 	$('.console').hide();
@@ -88,7 +84,6 @@ function makeNewGame() {
 }
 
 function makeAGuess(guess) {
-//	console.log("guessing... " +guess)
 	$('.letter').addClass('error');
 	if ($.isNumeric(guess)) {
 		return;
