@@ -1,4 +1,5 @@
-//Problems: might be caching letter guesses.  And also, if you win the game does nothing! 
+//Problems: might be caching letter guesses. *** I think I solved this, by emptying .attempts at end of every game
+//Better now, if win game, but I want to add Congratulations message.
 //Also, there seems to be a problem with lower case and capital letters!
 
 var maximumGuesses = 22;
@@ -45,11 +46,22 @@ function refreshRemainingGuesses () {
 function isGameEnded (remainingGuesses) {
 	if(remainingGuesses <= 0) {
 		$('.remaining-guesses').hide();
-		$('.attempts').hide();
+		$('.attempts').empty().hide();
 		$('.console').slideToggle(1100);
 		$('#new-game').show();
 		getSolution();
-	} 
+	}
+	isGameWon();
+}
+
+function isGameWon () {
+	var hangman_word = $('.hangman-word').text();
+	if (hangman_word.indexOf("_") == -1) {
+         $('.console').hide();
+         $('.attempts').empty();
+        // $('.attemps')
+         $('#new-game').show();
+    }
 }
 
 function getSolution () {
