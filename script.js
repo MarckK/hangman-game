@@ -1,4 +1,4 @@
-var maximumGuesses = 8;
+var maximumGuesses = 11;
 
 $(document).ready(function() {
 	$('.console').hide();
