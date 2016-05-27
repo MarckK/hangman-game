@@ -49,10 +49,9 @@ function isGameEnded (remainingGuesses) {
 	} 
 }
 
-function getSolution (){
+function getSolution () {
 	$.ajax({
     	type: "GET",
-    	dataType: 'json',
     	url: "http://hangman-api.herokuapp.com/hangman",
     	data: { 
     		"token": $('.token').text() 
