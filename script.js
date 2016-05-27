@@ -74,7 +74,7 @@ function makeNewGame() {
 
 function makeAGuess(guess) {
 
-	console.log("guessing... " +guess)
+//	console.log("guessing... " +guess)
 	$('.letter').addClass('error');
 	if ($.isNumeric(guess)) {
 		return;
@@ -96,8 +96,6 @@ function makeAGuess(guess) {
 		updateWord(data.hangman);
 		displayAttempt(guess, data.correct);
 		refreshRemainingGuesses();
-
-		console.log(data);
 	})
 
 }
